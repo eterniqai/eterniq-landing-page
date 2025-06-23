@@ -10,13 +10,7 @@ const quickLinks = [
   { href: "https://www.eterniq.in/vision", label: "Vision", external: true },
 ];
 
-const resources = [
-  { href: "https://chat.eterniq.in/", label: "Get Started", external: true },
-  { href: "#docs", label: "Documentation" },
-  { href: "#api", label: "API Reference" },
-  { href: "#support", label: "Support" },
-  { href: "#privacy", label: "Privacy Policy" },
-];
+
 
 const socialLinks = [
   { icon: Twitter, href: "#", label: "Twitter" },
@@ -29,7 +23,7 @@ export default function Footer() {
   return (
     <footer className="bg-[hsl(var(--dark-surface))]/50 border-t border-white/10 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
@@ -88,33 +82,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Resources */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Resources</h4>
-            <ul className="space-y-2">
-              {resources.map((link) => (
-                <li key={link.href}>
-                  {link.external ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-[hsl(var(--primary-blue))] transition-colors duration-300"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-[hsl(var(--primary-blue))] transition-colors duration-300"
-                    >
-                      {link.label}
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
+
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">

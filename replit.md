@@ -107,6 +107,7 @@ Changelog:
 - June 23, 2025. Improved text visibility by using white text for demo section and adjusting hero layout
 - June 23, 2025. Reduced hero section spacing for more compact design
 - June 23, 2025. Applied negative margins to bring hero image and feature cards closer together
+- June 23, 2025. Removed resources section from footer as requested
 ```
 
 ## User Preferences
