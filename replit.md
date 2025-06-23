@@ -100,6 +100,12 @@ EternIQ is a full-stack web application that serves as an AI-powered code assist
 ```
 Changelog:
 - June 23, 2025. Initial setup
+- June 23, 2025. Updated hero section text from "Your Eternal Coding Partner" to "EternIQ EternIQ"
+- June 23, 2025. Added vibrant color scheme with neon pink, electric cyan, lime green, and other bright colors
+- June 23, 2025. Implemented rainbow borders, neon glow effects, and colorful gradient backgrounds
+- June 23, 2025. Enhanced feature cards with unique gradient backgrounds and improved animations
+- June 23, 2025. Improved text visibility by using white text for demo section and adjusting hero layout
+- June 23, 2025. Reduced hero section spacing for more compact design
 ```
 
 ## User Preferences
