@@ -113,6 +113,7 @@ Changelog:
 - June 23, 2025. Transformed entire site to professional black and purple theme with sophisticated design
 - June 23, 2025. Updated hero section to display "EternIQ" only once in white text
 - June 23, 2025. Restored multi-colored vibrant feature cards with specific content: Screen Sharing & Code Analysis, Personalized Virtual Solutions, Efficiency and Reliability, Intelligent Code Assistance, Seamless Integration, and Future-Ready Technology
+- June 23, 2025. Removed floating circular elements from hero section while keeping code-related icons
 ```
 
 ## User Preferences

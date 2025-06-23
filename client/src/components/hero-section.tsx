@@ -29,20 +29,7 @@ export default function HeroSection() {
         >
           <Bot className="w-20 h-20 text-[var(--secondary-purple)] drop-shadow-lg filter" />
         </motion.div>
-        <motion.div
-          className="absolute top-60 right-10 opacity-30"
-          {...float}
-          transition={{ ...float.animate.transition, delay: -1 }}
-        >
-          <div className="w-8 h-8 bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-purple)] rounded-full"></div>
-        </motion.div>
-        <motion.div
-          className="absolute bottom-20 right-40 opacity-25"
-          {...float}
-          transition={{ ...float.animate.transition, delay: -3 }}
-        >
-          <div className="w-6 h-6 bg-gradient-to-r from-[var(--secondary-purple)] to-[var(--light-purple)] rounded-full"></div>
-        </motion.div>
+
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
