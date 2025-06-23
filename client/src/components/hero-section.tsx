@@ -5,7 +5,7 @@ import { fadeInUp, fadeIn, float } from "@/lib/animations";
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen hero-gradient relative flex items-center justify-center pt-16">
+    <section className="hero-gradient relative flex items-center justify-center pt-16 pb-4">
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
