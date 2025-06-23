@@ -16,42 +16,42 @@ const features = [
     icon: Share2,
     title: "Screen Sharing & Code Analysis",
     description: "Share your code screen in real-time and get intelligent AI-powered analysis, suggestions, and debugging assistance instantly.",
-    color: "text-[hsl(var(--primary-blue))]",
+    color: "text-[hsl(220,100%,60%)]",
     cardClass: "feature-card-1"
   },
   {
     icon: Bot,
     title: "Personalized Virtual Solutions",
     description: "Get tailored AI assistance for cloud analytics, application development, data science acceleration, and comprehensive coding support.",
-    color: "text-[hsl(var(--neon-pink))]",
+    color: "text-[hsl(320,100%,60%)]",
     cardClass: "feature-card-2"
   },
   {
     icon: Zap,
     title: "Efficiency and Reliability",
     description: "Experience unprecedented efficiency with impeccable reliability. Our AI ensures precision and accuracy in every coding task.",
-    color: "text-[hsl(var(--electric-cyan))]",
+    color: "text-[hsl(180,100%,50%)]",
     cardClass: "feature-card-3"
   },
   {
     icon: Brain,
     title: "Intelligent Code Assistance",
     description: "Advanced AI-powered code completion, error detection, optimization suggestions, and best practice recommendations.",
-    color: "text-[hsl(var(--lime-green))]",
+    color: "text-[hsl(120,100%,50%)]",
     cardClass: "feature-card-4"
   },
   {
     icon: Puzzle,
     title: "Seamless Integration",
     description: "Effortlessly integrate with your existing development environment and workflow for enhanced productivity and streamlined coding.",
-    color: "text-[hsl(var(--vibrant-orange))]",
+    color: "text-[hsl(30,100%,60%)]",
     cardClass: "feature-card-5"
   },
   {
     icon: Rocket,
     title: "Future-Ready Technology",
     description: "Built on cutting-edge AI technology, EternIQ is designed to transform the software development landscape across industries.",
-    color: "text-[hsl(var(--royal-purple))]",
+    color: "text-[hsl(280,100%,70%)]",
     cardClass: "feature-card-6"
   }
 ];

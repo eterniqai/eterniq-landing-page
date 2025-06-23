@@ -147,33 +147,33 @@
   }
   
   .feature-card-1 {
-    background: linear-gradient(145deg, hsla(259, 69%, 55%, 0.1), hsla(280, 60%, 45%, 0.05));
-    border: 1px solid hsla(259, 30%, 35%, 0.3);
+    background: linear-gradient(135deg, hsl(220, 100%, 60%)/15, hsl(180, 100%, 50%)/15);
+    border: 1px solid hsl(220, 100%, 60%)/40;
   }
   
   .feature-card-2 {
-    background: linear-gradient(145deg, hsla(280, 60%, 45%, 0.1), hsla(270, 100%, 75%, 0.05));
-    border: 1px solid hsla(280, 30%, 35%, 0.3);
+    background: linear-gradient(135deg, hsl(320, 100%, 60%)/15, hsl(280, 100%, 70%)/15);
+    border: 1px solid hsl(320, 100%, 60%)/40;
   }
   
   .feature-card-3 {
-    background: linear-gradient(145deg, hsla(270, 100%, 75%, 0.08), hsla(250, 45%, 25%, 0.1));
-    border: 1px solid hsla(270, 30%, 35%, 0.3);
+    background: linear-gradient(135deg, hsl(180, 100%, 50%)/15, hsl(120, 100%, 50%)/15);
+    border: 1px solid hsl(180, 100%, 50%)/40;
   }
   
   .feature-card-4 {
-    background: linear-gradient(145deg, hsla(250, 45%, 25%, 0.12), hsla(259, 69%, 55%, 0.08));
-    border: 1px solid hsla(250, 30%, 35%, 0.3);
+    background: linear-gradient(135deg, hsl(120, 100%, 50%)/15, hsl(60, 100%, 50%)/15);
+    border: 1px solid hsl(120, 100%, 50%)/40;
   }
   
   .feature-card-5 {
-    background: linear-gradient(145deg, hsla(259, 69%, 55%, 0.08), hsla(280, 60%, 45%, 0.1));
-    border: 1px solid hsla(259, 30%, 35%, 0.3);
+    background: linear-gradient(135deg, hsl(30, 100%, 60%)/15, hsl(0, 100%, 60%)/15);
+    border: 1px solid hsl(30, 100%, 60%)/40;
   }
   
   .feature-card-6 {
-    background: linear-gradient(145deg, hsla(280, 60%, 45%, 0.05), hsla(270, 100%, 75%, 0.1));
-    border: 1px solid hsla(280, 30%, 35%, 0.3);
+    background: linear-gradient(135deg, hsl(280, 100%, 70%)/15, hsl(260, 100%, 80%)/15);
+    border: 1px solid hsl(280, 100%, 70%)/40;
   }
 
   @keyframes purpleFlow {
