@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Code, Twitter, Linkedin, Github, MessageCircle } from "lucide-react";
+import { Twitter, Linkedin, Github, MessageCircle } from "lucide-react";
+import logoPath from "@assets/Screenshot_2025-06-23_145426-removebg-preview_1750670777588.png";
 import { Button } from "@/components/ui/button";
 
 const quickLinks = [
@@ -27,11 +28,11 @@ export default function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 purple-border rounded-lg flex items-center justify-center p-0.5">
-                <div className="w-full h-full bg-[var(--dark-surface)] rounded-md flex items-center justify-center">
-                  <Code className="w-4 h-4 text-white" />
-                </div>
-              </div>
+              <img 
+                src={logoPath} 
+                alt="EternIQ Logo" 
+                className="w-8 h-8 filter brightness-0 invert"
+              />
               <span className="text-2xl font-bold gradient-text">EternIQ</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { Menu, X, Code } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logoPath from "@assets/Screenshot_2025-06-23_145426-removebg-preview_1750670777588.png";
 import { Button } from "@/components/ui/button";
 
 export default function Navigation() {
@@ -36,11 +37,11 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 purple-border rounded-lg flex items-center justify-center p-0.5">
-              <div className="w-full h-full bg-[var(--dark-bg)] rounded-md flex items-center justify-center">
-                <Code className="w-4 h-4 text-white" />
-              </div>
-            </div>
+            <img 
+              src={logoPath} 
+              alt="EternIQ Logo" 
+              className="w-8 h-8 filter brightness-0 invert"
+            />
             <span className="text-xl font-bold gradient-text">EternIQ</span>
           </Link>
 
