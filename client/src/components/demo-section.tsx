@@ -17,12 +17,12 @@ export default function DemoSection() {
             variants={slideInLeft}
             animate={isInView ? "animate" : "initial"}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="gradient-text-bright">Are You Ready to</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Are You Ready to
               <br />
-              <span className="gradient-text-bright">Accelerate Your Development</span>
+              Accelerate Your Development
               <br />
-              <span className="gradient-text-bright">Process?</span>
+              Process?
             </h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
               EternIQ provides personalized assistance to meet your unique development needs. 
