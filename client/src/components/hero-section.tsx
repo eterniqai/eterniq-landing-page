@@ -51,8 +51,6 @@ export default function HeroSection() {
             <span className="gradient-text">EternIQ</span>
             <br />
             <span className="text-white">EternIQ</span>
-            <br />
-            <span className="text-white">Partner</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
