@@ -19,7 +19,7 @@ export default function HeroSection() {
       </div>
 
       {/* Floating Code Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden hidden lg:block">
         <motion.div
           className="absolute top-20 left-10 opacity-30"
           animate={{ 
@@ -85,20 +85,20 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8 sm:py-12 lg:py-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Side - Content */}
           <motion.div
             variants={slideInLeft}
             initial="initial"
             animate="animate"
-            className="text-left lg:text-left"
+            className="text-center lg:text-left order-2 lg:order-1"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex items-center gap-2 mb-6"
+              className="flex items-center justify-center lg:justify-start gap-2 mb-4 sm:mb-6"
             >
               <Sparkles className="w-5 h-5 text-yellow-400" />
               <span className="text-sm font-medium text-gray-300 uppercase tracking-wide">
@@ -110,7 +110,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight"
             >
               <span className="text-white">EternIQ</span>
               <br />
@@ -123,7 +123,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed"
+              className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-2xl leading-relaxed"
             >
               Transform your development workflow with intelligent screen sharing, 
               real-time code analysis, and AI-powered assistance that understands your code.
@@ -133,13 +133,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 mb-8"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center lg:justify-start"
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 >
                   <a href="https://chat.eterniq.in/" target="_blank" rel="noopener noreferrer">
                     <Rocket className="w-5 h-5 mr-2" />
@@ -151,7 +151,7 @@ export default function HeroSection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-gray-600 bg-transparent text-white hover:bg-white/10 hover:border-white px-8 py-4 text-lg transition-all duration-300"
+                  className="border-2 border-gray-600 bg-transparent text-white hover:bg-white/10 hover:border-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg transition-all duration-300 w-full sm:w-auto"
                   onClick={() => {
                     document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
                   }}
@@ -166,7 +166,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="flex items-center gap-6 text-sm text-gray-400"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 text-sm text-gray-400"
             >
               <div className="flex items-center gap-2">
                 <Zap className="w-4 h-4 text-yellow-400" />
@@ -188,7 +188,7 @@ export default function HeroSection() {
             variants={slideInRight}
             initial="initial"
             animate="animate"
-            className="relative"
+            className="relative order-1 lg:order-2"
           >
             <div className="relative">
               {/* Glowing Background */}
@@ -199,9 +199,9 @@ export default function HeroSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-gray-700"
+                className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden border border-gray-700 mx-auto max-w-md sm:max-w-none"
               >
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   {/* Header */}
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -211,26 +211,26 @@ export default function HeroSection() {
                   </div>
                   
                   {/* Code Editor Mockup */}
-                  <div className="bg-gray-900 rounded-lg p-4 mb-4 font-mono text-sm">
+                  <div className="bg-gray-900 rounded-lg p-3 sm:p-4 mb-4 font-mono text-xs sm:text-sm">
                     <div className="text-blue-400 mb-2">// AI Analysis in Progress...</div>
                     <div className="text-green-400 mb-1">function optimizeCode() &#123;</div>
-                    <div className="text-gray-300 ml-4 mb-1">const result = ai.analyze(code);</div>
-                    <div className="text-purple-400 ml-4 mb-1">return result.suggestions;</div>
+                    <div className="text-gray-300 ml-2 sm:ml-4 mb-1">const result = ai.analyze(code);</div>
+                    <div className="text-purple-400 ml-2 sm:ml-4 mb-1">return result.suggestions;</div>
                     <div className="text-green-400">&#125;</div>
                   </div>
                   
                   {/* Stats */}
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div className="bg-blue-500/20 rounded-lg p-3">
-                      <div className="text-blue-400 font-bold text-lg">98%</div>
+                  <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
+                    <div className="bg-blue-500/20 rounded-lg p-2 sm:p-3">
+                      <div className="text-blue-400 font-bold text-sm sm:text-lg">98%</div>
                       <div className="text-gray-400 text-xs">Accuracy</div>
                     </div>
-                    <div className="bg-green-500/20 rounded-lg p-3">
-                      <div className="text-green-400 font-bold text-lg">2.3s</div>
+                    <div className="bg-green-500/20 rounded-lg p-2 sm:p-3">
+                      <div className="text-green-400 font-bold text-sm sm:text-lg">2.3s</div>
                       <div className="text-gray-400 text-xs">Response</div>
                     </div>
-                    <div className="bg-purple-500/20 rounded-lg p-3">
-                      <div className="text-purple-400 font-bold text-lg">24/7</div>
+                    <div className="bg-purple-500/20 rounded-lg p-2 sm:p-3">
+                      <div className="text-purple-400 font-bold text-sm sm:text-lg">24/7</div>
                       <div className="text-gray-400 text-xs">Available</div>
                     </div>
                   </div>
@@ -239,7 +239,7 @@ export default function HeroSection() {
 
               {/* Floating Elements */}
               <motion.div
-                className="absolute -top-4 -right-4 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full p-3 shadow-lg"
+                className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full p-2 sm:p-3 shadow-lg"
                 animate={{
                   y: [-5, 5, -5],
                   rotate: [0, 10, 0]
@@ -250,11 +250,11 @@ export default function HeroSection() {
                   ease: "easeInOut"
                 }}
               >
-                <Sparkles className="w-6 h-6 text-white" />
+                <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
               </motion.div>
 
               <motion.div
-                className="absolute -bottom-4 -left-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full p-3 shadow-lg"
+                className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full p-2 sm:p-3 shadow-lg"
                 animate={{
                   y: [5, -5, 5],
                   rotate: [0, -10, 0]
@@ -266,7 +266,7 @@ export default function HeroSection() {
                   delay: 1
                 }}
               >
-                <Zap className="w-6 h-6 text-white" />
+                <Zap className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
               </motion.div>
             </div>
           </motion.div>
