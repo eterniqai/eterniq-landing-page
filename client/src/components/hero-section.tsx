@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Rocket, Play, Code, Laptop, Bot } from "lucide-react";
 import { fadeInUp, fadeIn, float } from "@/lib/animations";
-import Hero3DGraphic from "./hero-3d-graphic";
 
 export default function HeroSection() {
   return (
@@ -87,12 +86,18 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Hero 3D Graphic */}
+        {/* Hero Image */}
         <motion.div
           {...fadeIn}
           transition={{ ...fadeIn.transition, delay: 0.3 }}
         >
-          <Hero3DGraphic />
+          <motion.img
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600"
+            alt="AI-powered coding environment with multiple screens showing code collaboration"
+            className="rounded-2xl shadow-2xl mx-auto max-w-4xl w-full"
+            {...float}
+            transition={{ ...float.animate.transition, delay: -1 }}
+          />
         </motion.div>
       </div>
     </section>

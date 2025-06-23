@@ -109,6 +109,7 @@ Changelog:
 - June 23, 2025. Applied negative margins to bring hero image and feature cards closer together
 - June 23, 2025. Removed resources section from footer as requested
 - June 23, 2025. Replaced hero image with custom 3D animated graphic featuring rotating cubes, floating elements, and brand-colored animations
+- June 23, 2025. Reverted back to original hero image as requested
 ```
 
 ## User Preferences
