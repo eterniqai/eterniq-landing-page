@@ -115,6 +115,7 @@ Changelog:
 - June 23, 2025. Restored multi-colored vibrant feature cards with specific content: Screen Sharing & Code Analysis, Personalized Virtual Solutions, Efficiency and Reliability, Intelligent Code Assistance, Seamless Integration, and Future-Ready Technology
 - June 23, 2025. Removed floating circular elements from hero section while keeping code-related icons
 - June 23, 2025. Added EternIQ logo to header and footer, replacing generic Code icons
+- June 23, 2025. Completely redesigned hero section with modern split-screen layout, animated dashboard mockup, advanced background effects, and enhanced typography with gradient text
 ```
 
 ## User Preferences
