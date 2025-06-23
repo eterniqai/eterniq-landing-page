@@ -33,7 +33,7 @@ export default function DemoSection() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-[hsl(var(--primary-blue))] to-[hsl(var(--secondary-purple))] hover:shadow-xl hover:shadow-[hsl(var(--primary-blue))]/30 transition-all duration-300 px-8 py-4"
+                  className="bg-gradient-to-r from-[hsl(var(--primary-blue))] via-[hsl(var(--electric-cyan))] to-[hsl(var(--lime-green))] hover:shadow-xl neon-glow hover:shadow-[hsl(var(--primary-blue))]/30 transition-all duration-300 px-8 py-4"
                 >
                   <a href="https://chat.eterniq.in/" target="_blank" rel="noopener noreferrer">
                     <Play className="w-5 h-5 mr-2" />

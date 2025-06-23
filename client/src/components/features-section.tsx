@@ -16,37 +16,43 @@ const features = [
     icon: Share2,
     title: "Screen Sharing & Code Analysis",
     description: "Share your code screen in real-time and get intelligent AI-powered analysis, suggestions, and debugging assistance instantly.",
-    color: "text-[hsl(var(--primary-blue))]"
+    color: "text-[hsl(var(--primary-blue))]",
+    cardClass: "feature-card-1"
   },
   {
     icon: Bot,
     title: "Personalized Virtual Solutions",
     description: "Get tailored AI assistance for cloud analytics, application development, data science acceleration, and comprehensive coding support.",
-    color: "text-[hsl(var(--secondary-purple))]"
+    color: "text-[hsl(var(--neon-pink))]",
+    cardClass: "feature-card-2"
   },
   {
     icon: Zap,
     title: "Efficiency and Reliability",
     description: "Experience unprecedented efficiency with impeccable reliability. Our AI ensures precision and accuracy in every coding task.",
-    color: "text-[hsl(var(--accent-emerald))]"
+    color: "text-[hsl(var(--electric-cyan))]",
+    cardClass: "feature-card-3"
   },
   {
     icon: Brain,
     title: "Intelligent Code Assistance",
     description: "Advanced AI-powered code completion, error detection, optimization suggestions, and best practice recommendations.",
-    color: "text-[hsl(var(--primary-blue))]"
+    color: "text-[hsl(var(--lime-green))]",
+    cardClass: "feature-card-4"
   },
   {
     icon: Puzzle,
     title: "Seamless Integration",
     description: "Effortlessly integrate with your existing development environment and workflow for enhanced productivity and streamlined coding.",
-    color: "text-[hsl(var(--secondary-purple))]"
+    color: "text-[hsl(var(--vibrant-orange))]",
+    cardClass: "feature-card-5"
   },
   {
     icon: Rocket,
     title: "Future-Ready Technology",
     description: "Built on cutting-edge AI technology, EternIQ is designed to transform the software development landscape across industries.",
-    color: "text-[hsl(var(--accent-emerald))]"
+    color: "text-[hsl(var(--royal-purple))]",
+    cardClass: "feature-card-6"
   }
 ];
 
@@ -81,7 +87,7 @@ export default function FeaturesSection() {
               key={feature.title}
               variants={fadeInUp}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="glass-morphism rounded-2xl p-8 hover:bg-white/15 transition-all duration-300 group cursor-pointer"
+              className={`${feature.cardClass} glass-morphism rounded-2xl p-8 hover:bg-white/15 transition-all duration-300 group cursor-pointer border border-white/10 hover:border-white/30`}
             >
               <motion.div
                 className={`${feature.color} text-4xl mb-6 group-hover:scale-110 transition-transform duration-300`}

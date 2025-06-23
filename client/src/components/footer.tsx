@@ -12,10 +12,10 @@ const quickLinks = [
 
 const resources = [
   { href: "https://chat.eterniq.in/", label: "Get Started", external: true },
-  { href: "#", label: "Documentation" },
-  { href: "#", label: "API Reference" },
-  { href: "#", label: "Support" },
-  { href: "#", label: "Privacy Policy" },
+  { href: "#docs", label: "Documentation" },
+  { href: "#api", label: "API Reference" },
+  { href: "#support", label: "Support" },
+  { href: "#privacy", label: "Privacy Policy" },
 ];
 
 const socialLinks = [
@@ -33,8 +33,10 @@ export default function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-[hsl(var(--primary-blue))] to-[hsl(var(--secondary-purple))] rounded-lg flex items-center justify-center">
-                <Code className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 rainbow-border rounded-lg flex items-center justify-center p-0.5">
+                <div className="w-full h-full bg-[hsl(var(--dark-surface))] rounded-md flex items-center justify-center">
+                  <Code className="w-4 h-4 text-white" />
+                </div>
               </div>
               <span className="text-2xl font-bold gradient-text">EternIQ</span>
             </div>
@@ -123,7 +125,7 @@ export default function Footer() {
             <Button
               asChild
               size="sm"
-              className="bg-gradient-to-r from-[hsl(var(--primary-blue))] to-[hsl(var(--secondary-purple))] hover:shadow-lg hover:shadow-[hsl(var(--primary-blue))]/25 transition-all duration-300"
+              className="bg-gradient-to-r from-[hsl(var(--vibrant-orange))] via-[hsl(var(--neon-pink))] to-[hsl(var(--royal-purple))] hover:shadow-lg neon-glow hover:shadow-[hsl(var(--primary-blue))]/25 transition-all duration-300"
             >
               <a href="https://chat.eterniq.in/" target="_blank" rel="noopener noreferrer">
                 Start Coding with AI

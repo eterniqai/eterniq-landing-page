@@ -12,19 +12,19 @@ const contactInfo = [
     icon: Mail,
     title: "Email",
     content: "support@eterniq.in",
-    gradient: "from-[hsl(var(--primary-blue))] to-[hsl(var(--secondary-purple))]"
+    gradient: "from-[hsl(var(--primary-blue))] via-[hsl(var(--electric-cyan))] to-[hsl(var(--neon-pink))]"
   },
   {
     icon: Globe,
     title: "Website",
     content: "www.eterniq.in",
-    gradient: "from-[hsl(var(--secondary-purple))] to-[hsl(var(--accent-emerald))]"
+    gradient: "from-[hsl(var(--neon-pink))] via-[hsl(var(--royal-purple))] to-[hsl(var(--lime-green))]"
   },
   {
     icon: Clock,
     title: "Support Hours",
     content: "24/7 AI-powered assistance",
-    gradient: "from-[hsl(var(--accent-emerald))] to-[hsl(var(--primary-blue))]"
+    gradient: "from-[hsl(var(--lime-green))] via-[hsl(var(--vibrant-orange))] to-[hsl(var(--primary-blue))]"
   }
 ];
 
@@ -108,7 +108,7 @@ export default function Contact() {
                       href={social.href}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className={`w-12 h-12 bg-gradient-to-r from-[hsl(var(--primary-blue))] to-[hsl(var(--secondary-purple))] rounded-lg flex items-center justify-center transition-all duration-300 ${social.color}`}
+                      className={`w-12 h-12 bg-gradient-to-r from-[hsl(var(--neon-pink))] via-[hsl(var(--electric-cyan))] to-[hsl(var(--lime-green))] rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-current/25 ${social.color}`}
                     >
                       <social.icon className="w-6 h-6 text-white" />
                     </motion.a>

@@ -9,25 +9,39 @@ export default function HeroSection() {
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-10 opacity-20"
+          className="absolute top-20 left-10 opacity-30"
           {...float}
           transition={{ ...float.animate.transition, delay: 0 }}
         >
-          <Code className="w-16 h-16 text-[hsl(var(--primary-blue))]" />
+          <Code className="w-16 h-16 text-[hsl(var(--primary-blue))] drop-shadow-lg filter" />
         </motion.div>
         <motion.div
-          className="absolute top-40 right-20 opacity-20"
+          className="absolute top-40 right-20 opacity-30"
           {...float}
           transition={{ ...float.animate.transition, delay: -2 }}
         >
-          <Laptop className="w-12 h-12 text-[hsl(var(--secondary-purple))]" />
+          <Laptop className="w-12 h-12 text-[hsl(var(--neon-pink))] drop-shadow-lg filter" />
         </motion.div>
         <motion.div
-          className="absolute bottom-40 left-20 opacity-20"
+          className="absolute bottom-40 left-20 opacity-30"
           {...float}
           transition={{ ...float.animate.transition, delay: -4 }}
         >
-          <Bot className="w-20 h-20 text-[hsl(var(--accent-emerald))]" />
+          <Bot className="w-20 h-20 text-[hsl(var(--electric-cyan))] drop-shadow-lg filter" />
+        </motion.div>
+        <motion.div
+          className="absolute top-60 right-10 opacity-25"
+          {...float}
+          transition={{ ...float.animate.transition, delay: -1 }}
+        >
+          <div className="w-8 h-8 bg-gradient-to-r from-[hsl(var(--lime-green))] to-[hsl(var(--vibrant-orange))] rounded-full"></div>
+        </motion.div>
+        <motion.div
+          className="absolute bottom-20 right-40 opacity-25"
+          {...float}
+          transition={{ ...float.animate.transition, delay: -3 }}
+        >
+          <div className="w-6 h-6 bg-gradient-to-r from-[hsl(var(--royal-purple))] to-[hsl(var(--neon-pink))] rounded-full"></div>
         </motion.div>
       </div>
 
@@ -36,9 +50,9 @@ export default function HeroSection() {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             <span className="gradient-text">EternIQ</span>
             <br />
-            <span className="text-white">Your Eternal</span>
+            <span className="text-white">Your</span>
             <br />
-            <span className="gradient-text">Coding Partner</span>
+            <span className="gradient-text">EternIQ Partner</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -50,7 +64,7 @@ export default function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-[hsl(var(--primary-blue))] to-[hsl(var(--secondary-purple))] hover:shadow-xl hover:shadow-[hsl(var(--primary-blue))]/30 transition-all duration-300 px-8 py-4 text-lg"
+                className="bg-gradient-to-r from-[hsl(var(--primary-blue))] via-[hsl(var(--neon-pink))] to-[hsl(var(--secondary-purple))] hover:shadow-xl neon-glow hover:shadow-[hsl(var(--primary-blue))]/30 transition-all duration-300 px-8 py-4 text-lg"
               >
                 <a href="https://chat.eterniq.in/" target="_blank" rel="noopener noreferrer">
                   <Rocket className="w-5 h-5 mr-2" />

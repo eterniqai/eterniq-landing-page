@@ -36,8 +36,10 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-[hsl(var(--primary-blue))] to-[hsl(var(--secondary-purple))] rounded-lg flex items-center justify-center">
-              <Code className="w-4 h-4 text-white" />
+            <div className="w-8 h-8 rainbow-border rounded-lg flex items-center justify-center p-0.5">
+              <div className="w-full h-full bg-[hsl(var(--dark-bg))] rounded-md flex items-center justify-center">
+                <Code className="w-4 h-4 text-white" />
+              </div>
             </div>
             <span className="text-xl font-bold gradient-text">EternIQ</span>
           </Link>
@@ -59,7 +61,7 @@ export default function Navigation() {
             ))}
             <Button
               asChild
-              className="bg-gradient-to-r from-[hsl(var(--primary-blue))] to-[hsl(var(--secondary-purple))] hover:shadow-lg hover:shadow-[hsl(var(--primary-blue))]/25 transition-all duration-300"
+              className="bg-gradient-to-r from-[hsl(var(--primary-blue))] via-[hsl(var(--neon-pink))] to-[hsl(var(--secondary-purple))] hover:shadow-lg neon-glow hover:shadow-[hsl(var(--primary-blue))]/25 transition-all duration-300"
             >
               <a href="https://chat.eterniq.in/" target="_blank" rel="noopener noreferrer">
                 Get Started

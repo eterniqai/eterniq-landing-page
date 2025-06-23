@@ -12,19 +12,19 @@ const features = [
     icon: Eye,
     title: "Real-time Code Analysis",
     description: "Get instant feedback and intelligent suggestions as you code, with comprehensive analysis of your development patterns and optimization opportunities.",
-    gradient: "from-[hsl(var(--primary-blue))] to-[hsl(var(--secondary-purple))]"
+    gradient: "from-[hsl(var(--primary-blue))] via-[hsl(var(--electric-cyan))] to-[hsl(var(--neon-pink))]"
   },
   {
     icon: Sparkles,
     title: "Intelligent Suggestions",
     description: "Receive contextual recommendations, code improvements, and best practice guidance powered by advanced machine learning algorithms.",
-    gradient: "from-[hsl(var(--secondary-purple))] to-[hsl(var(--accent-emerald))]"
+    gradient: "from-[hsl(var(--neon-pink))] via-[hsl(var(--royal-purple))] to-[hsl(var(--lime-green))]"
   },
   {
     icon: Settings,
     title: "Automated Tasks",
     description: "Streamline your workflow with intelligent automation of repetitive coding tasks, testing, and deployment processes.",
-    gradient: "from-[hsl(var(--accent-emerald))] to-[hsl(var(--primary-blue))]"
+    gradient: "from-[hsl(var(--lime-green))] via-[hsl(var(--vibrant-orange))] to-[hsl(var(--primary-blue))]"
   }
 ];
 
@@ -114,7 +114,7 @@ export default function About() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-[hsl(var(--primary-blue))] to-[hsl(var(--secondary-purple))] hover:shadow-xl hover:shadow-[hsl(var(--primary-blue))]/30 transition-all duration-300 px-8 py-4"
+                  className="bg-gradient-to-r from-[hsl(var(--electric-cyan))] via-[hsl(var(--lime-green))] to-[hsl(var(--vibrant-orange))] hover:shadow-xl neon-glow hover:shadow-[hsl(var(--primary-blue))]/30 transition-all duration-300 px-8 py-4"
                 >
                   <a href="https://chat.eterniq.in/" target="_blank" rel="noopener noreferrer">
                     Get Started Now
