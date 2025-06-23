@@ -29,15 +29,15 @@ export default function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-morphism border-b border-white/10" : "bg-transparent"
+        scrolled ? "bg-[var(--dark-bg)]/90 backdrop-blur-md border-b border-[var(--border-purple)]" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 rainbow-border rounded-lg flex items-center justify-center p-0.5">
-              <div className="w-full h-full bg-[hsl(var(--dark-bg))] rounded-md flex items-center justify-center">
+            <div className="w-8 h-8 purple-border rounded-lg flex items-center justify-center p-0.5">
+              <div className="w-full h-full bg-[var(--dark-bg)] rounded-md flex items-center justify-center">
                 <Code className="w-4 h-4 text-white" />
               </div>
             </div>

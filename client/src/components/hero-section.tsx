@@ -9,39 +9,39 @@ export default function HeroSection() {
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-10 opacity-30"
+          className="absolute top-20 left-10 opacity-40"
           {...float}
           transition={{ ...float.animate.transition, delay: 0 }}
         >
-          <Code className="w-16 h-16 text-[hsl(var(--primary-blue))] drop-shadow-lg filter" />
+          <Code className="w-16 h-16 text-[var(--primary-purple)] drop-shadow-lg filter" />
         </motion.div>
         <motion.div
-          className="absolute top-40 right-20 opacity-30"
+          className="absolute top-40 right-20 opacity-35"
           {...float}
           transition={{ ...float.animate.transition, delay: -2 }}
         >
-          <Laptop className="w-12 h-12 text-[hsl(var(--neon-pink))] drop-shadow-lg filter" />
+          <Laptop className="w-12 h-12 text-[var(--accent-purple)] drop-shadow-lg filter" />
         </motion.div>
         <motion.div
           className="absolute bottom-40 left-20 opacity-30"
           {...float}
           transition={{ ...float.animate.transition, delay: -4 }}
         >
-          <Bot className="w-20 h-20 text-[hsl(var(--electric-cyan))] drop-shadow-lg filter" />
+          <Bot className="w-20 h-20 text-[var(--secondary-purple)] drop-shadow-lg filter" />
         </motion.div>
         <motion.div
-          className="absolute top-60 right-10 opacity-25"
+          className="absolute top-60 right-10 opacity-30"
           {...float}
           transition={{ ...float.animate.transition, delay: -1 }}
         >
-          <div className="w-8 h-8 bg-gradient-to-r from-[hsl(var(--lime-green))] to-[hsl(var(--vibrant-orange))] rounded-full"></div>
+          <div className="w-8 h-8 bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-purple)] rounded-full"></div>
         </motion.div>
         <motion.div
           className="absolute bottom-20 right-40 opacity-25"
           {...float}
           transition={{ ...float.animate.transition, delay: -3 }}
         >
-          <div className="w-6 h-6 bg-gradient-to-r from-[hsl(var(--royal-purple))] to-[hsl(var(--neon-pink))] rounded-full"></div>
+          <div className="w-6 h-6 bg-gradient-to-r from-[var(--secondary-purple)] to-[var(--light-purple)] rounded-full"></div>
         </motion.div>
       </div>
 
@@ -62,7 +62,7 @@ export default function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-[hsl(var(--primary-blue))] via-[hsl(var(--neon-pink))] to-[hsl(var(--secondary-purple))] hover:shadow-xl neon-glow hover:shadow-[hsl(var(--primary-blue))]/30 transition-all duration-300 px-8 py-4 text-lg"
+                className="bg-gradient-to-r from-[var(--primary-purple)] to-[var(--secondary-purple)] hover:shadow-lg purple-glow hover:shadow-[var(--primary-purple)]/25 transition-all duration-300 px-8 py-4 text-lg font-semibold text-white"
               >
                 <a href="https://chat.eterniq.in/" target="_blank" rel="noopener noreferrer">
                   <Rocket className="w-5 h-5 mr-2" />
@@ -74,7 +74,7 @@ export default function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="glass-morphism border-white/20 text-white hover:bg-white/20 px-8 py-4 text-lg"
+                className="border-[var(--border-purple)] bg-[var(--card-bg)]/50 backdrop-blur-sm text-white hover:bg-[var(--primary-purple)]/20 hover:border-[var(--accent-purple)] px-8 py-4 text-lg transition-all duration-300"
                 onClick={() => {
                   document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
                 }}

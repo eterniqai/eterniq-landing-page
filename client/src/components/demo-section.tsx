@@ -10,7 +10,7 @@ export default function DemoSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 bg-[hsl(var(--dark-bg))]">
+    <section className="py-20 bg-[var(--dark-bg)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
           <motion.div
@@ -33,7 +33,7 @@ export default function DemoSection() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-[hsl(var(--primary-blue))] via-[hsl(var(--electric-cyan))] to-[hsl(var(--lime-green))] hover:shadow-xl neon-glow hover:shadow-[hsl(var(--primary-blue))]/30 transition-all duration-300 px-8 py-4"
+                  className="bg-gradient-to-r from-[var(--primary-purple)] to-[var(--secondary-purple)] hover:shadow-lg purple-glow hover:shadow-[var(--primary-purple)]/25 transition-all duration-300 px-8 py-4 text-white font-semibold"
                 >
                   <a href="https://chat.eterniq.in/" target="_blank" rel="noopener noreferrer">
                     <Play className="w-5 h-5 mr-2" />
@@ -45,7 +45,7 @@ export default function DemoSection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="glass-morphism border-white/20 text-white hover:bg-white/20 px-8 py-4"
+                  className="glass-morphism border-[var(--accent-purple)]/30 text-white hover:bg-[var(--accent-purple)]/20 px-8 py-4"
                   onClick={() => {
                     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
                   }}

@@ -24,41 +24,39 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
 
-  /* EternIQ Custom Colors */
-  --primary-blue: hsl(195, 100%, 50%);
-  --primary-dark-blue: hsl(225, 100%, 50%);
-  --secondary-purple: hsl(258, 84%, 68%);
-  --accent-emerald: hsl(156, 68%, 40%);
-  --neon-pink: hsl(324, 100%, 65%);
-  --electric-cyan: hsl(180, 100%, 60%);
-  --vibrant-orange: hsl(25, 95%, 58%);
-  --lime-green: hsl(84, 85%, 55%);
-  --royal-purple: hsl(280, 85%, 65%);
-  --dark-bg: hsl(240, 10%, 4%);
-  --dark-surface: hsl(217, 19%, 16%);
+  /* Professional Black & Purple Theme */
+  --primary-purple: hsl(259, 69%, 55%);
+  --secondary-purple: hsl(280, 60%, 45%);
+  --accent-purple: hsl(270, 100%, 75%);
+  --light-purple: hsl(270, 50%, 85%);
+  --deep-purple: hsl(250, 45%, 25%);
+  --dark-bg: hsl(0, 0%, 8%);
+  --dark-surface: hsl(0, 0%, 12%);
+  --card-bg: hsl(250, 20%, 15%);
+  --border-purple: hsl(260, 30%, 25%);
 }
 
 .dark {
-  --background: hsl(240, 10%, 4%);
-  --foreground: hsl(0, 0%, 98%);
-  --muted: hsl(240, 3.7%, 15.9%);
-  --muted-foreground: hsl(240, 5%, 64.9%);
-  --popover: hsl(240, 10%, 4%);
-  --popover-foreground: hsl(0, 0%, 98%);
-  --card: hsl(240, 10%, 4%);
-  --card-foreground: hsl(0, 0%, 98%);
-  --border: hsl(240, 3.7%, 15.9%);
-  --input: hsl(240, 3.7%, 15.9%);
-  --primary: hsl(195, 100%, 50%);
-  --primary-foreground: hsl(211, 100%, 99%);
-  --secondary: hsl(240, 3.7%, 15.9%);
-  --secondary-foreground: hsl(0, 0%, 98%);
-  --accent: hsl(240, 3.7%, 15.9%);
-  --accent-foreground: hsl(0, 0%, 98%);
-  --destructive: hsl(0, 62.8%, 30.6%);
+  --background: var(--dark-bg);
+  --foreground: hsl(0, 0%, 95%);
+  --muted: var(--card-bg);
+  --muted-foreground: hsl(270, 15%, 65%);
+  --popover: var(--dark-surface);
+  --popover-foreground: hsl(0, 0%, 95%);
+  --card: var(--card-bg);
+  --card-foreground: hsl(0, 0%, 95%);
+  --border: var(--border-purple);
+  --input: var(--border-purple);
+  --primary: var(--primary-purple);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: var(--secondary-purple);
+  --secondary-foreground: hsl(0, 0%, 95%);
+  --accent: var(--accent-purple);
+  --accent-foreground: hsl(250, 45%, 25%);
+  --destructive: hsl(0, 62.8%, 50%);
   --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(240, 4.9%, 83.9%);
-  --radius: 0.5rem;
+  --ring: var(--accent-purple);
+  --radius: 0.75rem;
 }
 
 @layer base {
@@ -109,7 +107,7 @@
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary-blue)), hsl(var(--neon-pink)), hsl(var(--secondary-purple)));
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -117,69 +115,68 @@
   
   .gradient-text-bright {
     color: transparent;
-    background: linear-gradient(135deg, 
-      hsl(195, 100%, 70%), 
-      hsl(324, 100%, 80%), 
-      hsl(258, 84%, 80%)
-    );
+    background: linear-gradient(135deg, var(--accent-purple), var(--light-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: brightness(1.2) contrast(1.1);
+    filter: brightness(1.1);
   }
   
   .hero-gradient {
-    background: radial-gradient(ellipse at top left, rgba(0, 212, 255, 0.4) 0%, transparent 50%),
-                radial-gradient(ellipse at top right, rgba(255, 20, 147, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
-                radial-gradient(ellipse at center, rgba(0, 255, 255, 0.2) 0%, transparent 70%),
-                hsl(var(--dark-bg));
+    background: radial-gradient(ellipse at top left, hsla(259, 69%, 55%, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at top right, hsla(280, 60%, 45%, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom center, hsla(270, 100%, 75%, 0.1) 0%, transparent 60%),
+                var(--dark-bg);
   }
   
-  .rainbow-border {
+  .purple-border {
     background: linear-gradient(45deg, 
-      hsl(var(--primary-blue)), 
-      hsl(var(--electric-cyan)), 
-      hsl(var(--lime-green)), 
-      hsl(var(--vibrant-orange)), 
-      hsl(var(--neon-pink)), 
-      hsl(var(--royal-purple))
+      var(--primary-purple), 
+      var(--secondary-purple), 
+      var(--accent-purple), 
+      var(--deep-purple)
     );
-    background-size: 300% 300%;
-    animation: rainbow 3s ease-in-out infinite;
+    background-size: 200% 200%;
+    animation: purpleFlow 4s ease-in-out infinite;
   }
   
-  .neon-glow {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4),
-                0 0 40px rgba(255, 20, 147, 0.3),
-                0 0 60px rgba(139, 92, 246, 0.2);
+  .purple-glow {
+    box-shadow: 0 0 20px hsla(259, 69%, 55%, 0.4),
+                0 0 40px hsla(280, 60%, 45%, 0.3),
+                0 0 60px hsla(270, 100%, 75%, 0.2);
   }
   
   .feature-card-1 {
-    background: linear-gradient(145deg, rgba(0, 212, 255, 0.1), rgba(255, 20, 147, 0.1));
+    background: linear-gradient(145deg, hsla(259, 69%, 55%, 0.1), hsla(280, 60%, 45%, 0.05));
+    border: 1px solid hsla(259, 30%, 35%, 0.3);
   }
   
   .feature-card-2 {
-    background: linear-gradient(145deg, rgba(255, 20, 147, 0.1), rgba(139, 92, 246, 0.1));
+    background: linear-gradient(145deg, hsla(280, 60%, 45%, 0.1), hsla(270, 100%, 75%, 0.05));
+    border: 1px solid hsla(280, 30%, 35%, 0.3);
   }
   
   .feature-card-3 {
-    background: linear-gradient(145deg, rgba(139, 92, 246, 0.1), rgba(0, 255, 255, 0.1));
+    background: linear-gradient(145deg, hsla(270, 100%, 75%, 0.08), hsla(250, 45%, 25%, 0.1));
+    border: 1px solid hsla(270, 30%, 35%, 0.3);
   }
   
   .feature-card-4 {
-    background: linear-gradient(145deg, rgba(0, 255, 255, 0.1), rgba(132, 204, 22, 0.1));
+    background: linear-gradient(145deg, hsla(250, 45%, 25%, 0.12), hsla(259, 69%, 55%, 0.08));
+    border: 1px solid hsla(250, 30%, 35%, 0.3);
   }
   
   .feature-card-5 {
-    background: linear-gradient(145deg, rgba(132, 204, 22, 0.1), rgba(251, 146, 60, 0.1));
+    background: linear-gradient(145deg, hsla(259, 69%, 55%, 0.08), hsla(280, 60%, 45%, 0.1));
+    border: 1px solid hsla(259, 30%, 35%, 0.3);
   }
   
   .feature-card-6 {
-    background: linear-gradient(145deg, rgba(251, 146, 60, 0.1), rgba(168, 85, 247, 0.1));
+    background: linear-gradient(145deg, hsla(280, 60%, 45%, 0.05), hsla(270, 100%, 75%, 0.1));
+    border: 1px solid hsla(280, 30%, 35%, 0.3);
   }
 
-  @keyframes rainbow {
+  @keyframes purpleFlow {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
   }

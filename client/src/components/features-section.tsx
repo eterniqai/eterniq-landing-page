@@ -61,7 +61,7 @@ export default function FeaturesSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="features" className="-mt-16 pt-0 pb-4 bg-gradient-to-b from-[hsl(var(--dark-bg))] to-[hsl(var(--dark-surface))]/50">
+    <section id="features" className="-mt-16 pt-0 pb-4 bg-gradient-to-b from-[var(--dark-bg)] to-[var(--dark-surface)]/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           {...fadeInUp}
@@ -87,7 +87,7 @@ export default function FeaturesSection() {
               key={feature.title}
               variants={fadeInUp}
               whileHover={{ scale: 1.05, y: -5 }}
-              className={`${feature.cardClass} glass-morphism rounded-2xl p-8 hover:bg-white/15 transition-all duration-300 group cursor-pointer border border-white/10 hover:border-white/30`}
+              className={`${feature.cardClass} rounded-2xl p-8 hover:bg-[var(--primary-purple)]/10 transition-all duration-300 group cursor-pointer backdrop-blur-sm`}
             >
               <motion.div
                 className={`${feature.color} text-4xl mb-6 group-hover:scale-110 transition-transform duration-300`}

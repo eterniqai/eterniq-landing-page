@@ -21,14 +21,14 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[hsl(var(--dark-surface))]/50 border-t border-white/10 py-12">
+    <footer className="bg-[var(--dark-surface)]/80 border-t border-[var(--border-purple)] py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 rainbow-border rounded-lg flex items-center justify-center p-0.5">
-                <div className="w-full h-full bg-[hsl(var(--dark-surface))] rounded-md flex items-center justify-center">
+              <div className="w-8 h-8 purple-border rounded-lg flex items-center justify-center p-0.5">
+                <div className="w-full h-full bg-[var(--dark-surface)] rounded-md flex items-center justify-center">
                   <Code className="w-4 h-4 text-white" />
                 </div>
               </div>
@@ -45,7 +45,7 @@ export default function Footer() {
                   href={social.href}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="text-gray-400 hover:text-[hsl(var(--primary-blue))] transition-colors duration-300"
+                  className="text-gray-400 hover:text-[var(--accent-purple)] transition-colors duration-300"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -65,14 +65,14 @@ export default function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-[hsl(var(--primary-blue))] transition-colors duration-300"
+                      className="text-gray-400 hover:text-[var(--accent-purple)] transition-colors duration-300"
                     >
                       {link.label}
                     </a>
                   ) : (
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-[hsl(var(--primary-blue))] transition-colors duration-300"
+                      className="text-gray-400 hover:text-[var(--accent-purple)] transition-colors duration-300"
                     >
                       {link.label}
                     </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-[var(--border-purple)] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             © 2024 EternIQ. All rights reserved. Revolutionizing development with AI.
           </p>
@@ -93,7 +93,7 @@ export default function Footer() {
             <Button
               asChild
               size="sm"
-              className="bg-gradient-to-r from-[hsl(var(--vibrant-orange))] via-[hsl(var(--neon-pink))] to-[hsl(var(--royal-purple))] hover:shadow-lg neon-glow hover:shadow-[hsl(var(--primary-blue))]/25 transition-all duration-300"
+              className="bg-gradient-to-r from-[var(--primary-purple)] to-[var(--secondary-purple)] hover:shadow-lg purple-glow hover:shadow-[var(--primary-purple)]/25 transition-all duration-300 text-white font-medium"
             >
               <a href="https://chat.eterniq.in/" target="_blank" rel="noopener noreferrer">
                 Start Coding with AI
