@@ -2,10 +2,96 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Rocket, Play, Code2, Cpu, Terminal, Zap, Brain, Sparkles } from "lucide-react";
 import { fadeInUp, fadeIn, slideInLeft, slideInRight } from "@/lib/animations";
+import React, { useState, useEffect } from "react";
+
+// Array of code snippets (move outside component for stable reference)
+const codeSnippets = [
+  [
+    "// AI Analysis in Progress...",
+    "function optimizeCode() {",
+    "  const result = ai.analyze(code);",
+    "  return result.suggestions;",
+    "}"
+  ],
+  [
+    "// Real-time Collaboration",
+    "const session = createSession(user);",
+    "session.shareScreen();",
+    "ai.assist(session);"
+  ],
+  [
+    "// Bug Fix Suggestion",
+    "if (error) {",
+    "  ai.suggestFix(error);",
+    "}"
+  ],
+  [
+    "// Accelerate Deployment 🚀",
+    "deploy(app, {",
+    "  optimize: true,",
+    "  aiReview: true",
+    "});"
+  ]
+];
+
+// Typing effect hook
+function useTypingEffect(lines: string[], speed = 40, pause = 900) {
+  const [displayed, setDisplayed] = useState<string[]>([""]);
+  const [lineIdx, setLineIdx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
+
+  useEffect(() => {
+    setDisplayed([""]);
+    setLineIdx(0);
+    setCharIdx(0);
+    console.log("TypingEffect: lines changed", lines);
+  }, [lines]);
+
+  useEffect(() => {
+    if (lineIdx >= lines.length) return;
+    if (charIdx < lines[lineIdx].length) {
+      const timeout = setTimeout(() => {
+        setDisplayed((prev) => {
+          const newLines = [...prev];
+          newLines[lineIdx] = lines[lineIdx].slice(0, charIdx + 1);
+          return newLines;
+        });
+        setCharIdx((c) => c + 1);
+      }, speed);
+      return () => clearTimeout(timeout);
+    } else if (lineIdx < lines.length - 1) {
+      const timeout = setTimeout(() => {
+        setDisplayed((prev) => [...prev, ""]);
+        setLineIdx((l) => l + 1);
+        setCharIdx(0);
+      }, pause);
+      return () => clearTimeout(timeout);
+    }
+  }, [charIdx, lineIdx, lines, speed, pause]);
+
+  useEffect(() => {
+    console.log("TypingEffect: displayed", displayed);
+  }, [displayed]);
+
+  return displayed;
+}
 
 export default function HeroSection() {
+  const [snippetIdx, setSnippetIdx] = useState(0);
+
+  // Cycle code snippet every 7 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSnippetIdx((idx) => (idx + 1) % codeSnippets.length);
+    }, 7000);
+    return () => clearInterval(interval);
+  }, [codeSnippets.length]);
+
+  // Typing effect for current snippet
+  const typedLines = useTypingEffect(codeSnippets[snippetIdx], 28, 650);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-0 sm:min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-0 sm:pt-0 sm:pb-0">
       {/* Advanced Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--primary-purple)_0%,_transparent_50%)] opacity-30"></div>
@@ -151,13 +237,13 @@ export default function HeroSection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-gray-600 bg-transparent text-white hover:bg-white/10 hover:border-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg transition-all duration-300 w-full sm:w-auto"
-                  onClick={() => {
-                    document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
-                  }}
+                  className="border-2 border-gray-600 bg-transparent text-white hover:bg-white/10 hover:border-white hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg transition-all duration-300 w-full sm:w-auto"
+                  asChild
                 >
-                  <Play className="w-5 h-5 mr-2" />
-                  Watch Demo
+                  <a href="https://youtu.be/CJrqvwnsjpg?si=y6P2QbCiMn6tpBLU" target="_blank" rel="noopener noreferrer">
+                    <Play className="w-5 h-5 mr-2" />
+                    Watch Demo
+                  </a>
                 </Button>
               </motion.div>
             </motion.div>
@@ -210,14 +296,11 @@ export default function HeroSection() {
                     <span className="ml-4 text-gray-400 text-sm">EternIQ Dashboard</span>
                   </div>
                   
-                  {/* Code Editor Mockup */}
-                  <div className="bg-gray-900 rounded-lg p-3 sm:p-4 mb-4 font-mono text-xs sm:text-sm">
-                    <div className="text-blue-400 mb-2">// AI Analysis in Progress...</div>
-                    <div className="text-green-400 mb-1">function optimizeCode() &#123;</div>
-                    <div className="text-gray-300 ml-2 sm:ml-4 mb-1">const result = ai.analyze(code);</div>
-                    <div className="text-purple-400 ml-2 sm:ml-4 mb-1">return result.suggestions;</div>
-                    <div className="text-green-400">&#125;</div>
-                  </div>
+                  {/* Code Editor Mockup - Only this part updates with typing */}
+                  <CodeTypingArea
+                    lines={codeSnippets[snippetIdx]}
+                    typedLines={typedLines}
+                  />
                   
                   {/* Stats */}
                   <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
@@ -273,5 +356,35 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+// Only the code lines area updates
+function CodeTypingArea({ lines, typedLines }: { lines: string[]; typedLines: string[] }) {
+  console.log("CodeTypingArea: lines", lines);
+  console.log("CodeTypingArea: typedLines", typedLines);
+  return (
+    <div className="bg-gray-900 rounded-lg p-3 sm:p-4 mb-4 font-mono text-xs sm:text-sm min-h-[110px]">
+      {(typedLines.length > 0 && typedLines.some(line => line.length > 0)) ? (
+        typedLines.map((line, i) => (
+          <div
+            key={i}
+            className={
+              i === 0 ? "text-blue-400 mb-2" :
+              i === 1 ? "text-green-400 mb-1" :
+              i === 2 ? "text-gray-300 ml-2 sm:ml-4 mb-1" :
+              i === 3 ? "text-purple-400 ml-2 sm:ml-4 mb-1" :
+              "text-green-400"
+            }
+            style={{ whiteSpace: "pre" }}
+          >
+            {line}
+            {i === typedLines.length - 1 && line.length < (lines[i] || '').length && <span className="animate-pulse">|</span>}
+          </div>
+        ))
+      ) : (
+        <div className="text-blue-400">{lines[0] || "No code loaded"}</div>
+      )}
+    </div>
   );
 }

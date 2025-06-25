@@ -32,4 +32,7 @@ export const insertContactSubmissionSchema = createInsertSchema(contactSubmissio
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 export type InsertContactSubmission = z.infer<typeof insertContactSubmissionSchema>;
-export type ContactSubmission = typeof contactSubmissions.$inferSelect;
+export type ContactSubmission = WithStringOrNumberId<typeof contactSubmissions.$inferSelect>;
+
+// Add a utility type for id
+export type WithStringOrNumberId<T> = Omit<T, 'id'> & { id: string | number };

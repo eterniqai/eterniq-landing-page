@@ -1,23 +1,17 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Twitter, Linkedin, Github, MessageCircle } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 import logoPath from "@assets/Screenshot_2025-06-23_145426-removebg-preview_1750670777588.png";
 import { Button } from "@/components/ui/button";
 
 const quickLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "https://www.eterniq.in/vision", label: "Vision", external: true },
 ];
 
-
-
 const socialLinks = [
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: MessageCircle, href: "#", label: "Discord" },
+  { icon: Instagram, href: "https://www.instagram.com/eterniq.in?igsh=MmRpd3UydGgxNGxx", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/eterniq/", label: "LinkedIn" },
 ];
 
 export default function Footer() {
@@ -44,6 +38,8 @@ export default function Footer() {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className="text-gray-400 hover:text-[var(--accent-purple)] transition-colors duration-300"
@@ -61,23 +57,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  {link.external ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-[var(--accent-purple)] transition-colors duration-300"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="text-gray-400 hover:text-[var(--accent-purple)] transition-colors duration-300"
-                    >
-                      {link.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-[var(--accent-purple)] transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -2,6 +2,7 @@ import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import FeaturesSection from "@/components/features-section";
 import DemoSection from "@/components/demo-section";
+import FAQSection from "@/components/faq-section";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <DemoSection />
+      <FAQSection />
       <Footer />
     </div>
   );

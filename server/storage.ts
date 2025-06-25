@@ -1,11 +1,27 @@
-import { users, contactSubmissions, type User, type InsertUser, type ContactSubmission, type InsertContactSubmission } from "@shared/schema";
+import { users, contactSubmissions, type User, type InsertUser, type ContactSubmission, type InsertContactSubmission, WithStringOrNumberId } from "@shared/schema";
+import mongoose, { Schema, model, type Document } from "mongoose";
+
+const MONGO_URI = "mongodb+srv://saw31221:FgRtoJMEw2yvfTzL@contactmessages.uvqhfe0.mongodb.net/?retryWrites=true&w=majority&appName=ContactMessages";
+const DB_NAME = "FormSubmissions";
+const COLLECTION_NAME = "People";
+
+// Mongoose schema for contact submissions
+const contactSubmissionSchema = new Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  subject: { type: String, required: true },
+  message: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
+}, { collection: COLLECTION_NAME });
+
+const ContactSubmissionModel = model("ContactSubmission", contactSubmissionSchema);
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission>;
-  getContactSubmissions(): Promise<ContactSubmission[]>;
+  createContactSubmission(submission: InsertContactSubmission): Promise<WithStringOrNumberId<ContactSubmission>>;
+  getContactSubmissions(): Promise<WithStringOrNumberId<ContactSubmission>[]>;
 }
 
 export class MemStorage implements IStorage {
@@ -56,4 +72,47 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+class MongoStorage implements IStorage {
+  constructor() {
+    if (!mongoose.connection.readyState) {
+      mongoose.connect(MONGO_URI, {
+        dbName: DB_NAME,
+      });
+    }
+  }
+
+  async getUser(id: number) {
+    return Promise.reject(new Error("Not implemented"));
+  }
+  async getUserByUsername(username: string) {
+    return Promise.reject(new Error("Not implemented"));
+  }
+  async createUser(user: InsertUser) {
+    return Promise.reject(new Error("Not implemented"));
+  }
+
+  async createContactSubmission(submission: InsertContactSubmission) {
+    const doc = new ContactSubmissionModel(submission);
+    await doc.save();
+    return {
+      ...submission,
+      id: doc._id.toString(),
+      createdAt: doc.createdAt,
+    };
+  }
+
+  async getContactSubmissions() {
+    const docs = await ContactSubmissionModel.find().sort({ createdAt: -1 });
+    return docs.map(doc => ({
+      id: doc._id.toString(),
+      name: doc.name,
+      email: doc.email,
+      subject: doc.subject,
+      message: doc.message,
+      createdAt: doc.createdAt,
+    }));
+  }
+}
+
+// export const storage = new MemStorage();
+export const storage = new MongoStorage();
