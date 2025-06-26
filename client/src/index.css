@@ -207,3 +207,31 @@
 .animate-blob {
   animation: blob 10s infinite;
 }
+
+.login-signup-bg {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple), var(--secondary-purple));
+}
+.login-signup-bg::before,
+.login-signup-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.login-signup-bg::before {
+  background:
+    radial-gradient(ellipse at top left, rgba(0,0,0,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at top right, rgba(0,0,0,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(0,0,0,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(0,0,0,0.35) 0%, transparent 60%);
+  z-index: 1;
+}
+
+/* Ensure content is above the overlays */
+.login-signup-content {
+  position: relative;
+  z-index: 2;
+}

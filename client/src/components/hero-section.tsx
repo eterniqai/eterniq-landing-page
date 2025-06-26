@@ -287,7 +287,8 @@ export default function HeroSection() {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden border border-gray-700 mx-auto max-w-md sm:max-w-none"
               >
-                <div className="p-4 sm:p-6">
+                <div className="absolute inset-0 bg-black opacity-60 pointer-events-none z-0"></div>
+                <div className="relative z-10 p-4 sm:p-6">
                   {/* Header */}
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
