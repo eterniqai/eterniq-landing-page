@@ -22,11 +22,12 @@ export const insertUserSchema = createInsertSchema(users).pick({
   password: true,
 });
 
-export const insertContactSubmissionSchema = createInsertSchema(contactSubmissions).pick({
-  name: true,
-  email: true,
-  subject: true,
-  message: true,
+// We are defining this explicitly to avoid build issues with drizzle-zod's pick method on Netlify
+export const insertContactSubmissionSchema = z.object({
+  name: z.string().min(1, { message: "Name is required" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  subject: z.string().min(1, { message: "Subject is required" }),
+  message: z.string().min(1, { message: "Message is required" }),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
