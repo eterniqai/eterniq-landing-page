@@ -7,8 +7,11 @@ async function throwIfResNotOk(res: Response) {
   }
 }
 
-function getNetlifyFunctionUrl(url: string): string {
-  // Convert /api/contact to /.netlify/functions/contact-submit or contact-get
+function getApiUrl(url: string): string {
+  if (typeof window !== 'undefined' && window.location.hostname === "localhost") {
+    return `http://localhost:5000${url}`;
+  }
+  // Otherwise, use Netlify function rewrite for production
   const path = url.replace('/api/', '');
   const isPost = path === 'contact';
   return `/.netlify/functions/${path}${isPost ? '-submit' : '-get'}`;
@@ -19,8 +22,8 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  const functionUrl = getNetlifyFunctionUrl(url);
-  const res = await fetch(functionUrl, {
+  const apiUrl = getApiUrl(url);
+  const res = await fetch(apiUrl, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
@@ -37,8 +40,8 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const functionUrl = getNetlifyFunctionUrl(queryKey[0] as string);
-    const res = await fetch(functionUrl, {
+    const apiUrl = getApiUrl(queryKey[0] as string);
+    const res = await fetch(apiUrl, {
       credentials: "include",
     });
 

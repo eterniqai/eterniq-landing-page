@@ -6,3 +6,6 @@ vite.config.ts.*
 *.tar.gz
 # Local Netlify folder
 .netlify
+eterniqdb-09c21a2c5c09.json
+# Google service account credentials
+server/google-service-account.json

@@ -1,9 +1,19 @@
 import { users, contactSubmissions, type User, type InsertUser, type ContactSubmission, type InsertContactSubmission, WithStringOrNumberId } from "@shared/schema";
 import mongoose, { Schema, model, type Document } from "mongoose";
+import path from "path";
+import { google } from "googleapis";
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const MONGO_URI = "mongodb+srv://saw31221:FgRtoJMEw2yvfTzL@contactmessages.uvqhfe0.mongodb.net/?retryWrites=true&w=majority&appName=ContactMessages";
 const DB_NAME = "FormSubmissions";
 const COLLECTION_NAME = "People";
+
+const GOOGLE_SHEET_ID = "1Pc49EohOyakVsVfn2D02S6lQc1WLg_KpqMI82NKZtR8";
+const GOOGLE_SHEET_NAME = "contact form";
+const GOOGLE_CREDENTIALS_PATH = path.join(__dirname, "google-service-account.json");
 
 // Mongoose schema for contact submissions
 const contactSubmissionSchema = new Schema({
@@ -72,6 +82,48 @@ export class MemStorage implements IStorage {
   }
 }
 
+function getGoogleAuth() {
+  if (process.env.GOOGLE_SERVICE_ACCOUNT_JSON) {
+    // Running in production (Netlify): use credentials from env var
+    const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
+    return new google.auth.GoogleAuth({
+      credentials,
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    });
+  } else {
+    // Local development: use credentials from file
+    return new google.auth.GoogleAuth({
+      keyFile: GOOGLE_CREDENTIALS_PATH,
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    });
+  }
+}
+
+async function appendToGoogleSheet(submission: { name: string; email: string; subject: string; message: string; createdAt: Date }) {
+  try {
+    const auth = getGoogleAuth();
+    const sheets = google.sheets({ version: "v4", auth });
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: GOOGLE_SHEET_ID,
+      range: `${GOOGLE_SHEET_NAME}!A:E`,
+      valueInputOption: "USER_ENTERED",
+      requestBody: {
+        values: [[
+          submission.name,
+          submission.email,
+          submission.subject,
+          submission.message,
+          submission.createdAt.toISOString(),
+        ]],
+      },
+    });
+    console.log("[Google Sheets] Successfully appended contact submission.");
+  } catch (err) {
+    console.error("[Google Sheets] Failed to append contact submission:", err);
+    // Do not throw, so MongoDB save still succeeds
+  }
+}
+
 class MongoStorage implements IStorage {
   constructor() {
     if (!mongoose.connection.readyState) {
@@ -94,6 +146,11 @@ class MongoStorage implements IStorage {
   async createContactSubmission(submission: InsertContactSubmission) {
     const doc = new ContactSubmissionModel(submission);
     await doc.save();
+    // Append to Google Sheet
+    await appendToGoogleSheet({
+      ...submission,
+      createdAt: doc.createdAt,
+    });
     return {
       ...submission,
       id: doc._id.toString(),

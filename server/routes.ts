@@ -19,9 +19,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           errors: error.errors 
         });
       } else {
+        console.error("[API] Failed to submit contact form:", error);
         res.status(500).json({ 
           success: false, 
-          message: "Failed to submit contact form" 
+          message: error?.message || "Failed to submit contact form" 
         });
       }
     }
