@@ -4,8 +4,18 @@ import path from "path";
 import { google } from "googleapis";
 import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Only define __filename and __dirname if not running in Netlify (production)
+let __filename: string | undefined = undefined;
+let __dirname: string | undefined = undefined;
+if (!process.env.GOOGLE_SERVICE_ACCOUNT_JSON) {
+  // Local development
+  const { fileURLToPath } = require('url');
+  const path = require('path');
+  __filename = fileURLToPath(import.meta.url);
+  __dirname = path.dirname(__filename);
+}
+
+const GOOGLE_CREDENTIALS_PATH = __dirname ? path.join(__dirname, "google-service-account.json") : undefined;
 
 const MONGO_URI = "mongodb+srv://saw31221:FgRtoJMEw2yvfTzL@contactmessages.uvqhfe0.mongodb.net/?retryWrites=true&w=majority&appName=ContactMessages";
 const DB_NAME = "FormSubmissions";
@@ -13,7 +23,6 @@ const COLLECTION_NAME = "People";
 
 const GOOGLE_SHEET_ID = "1Pc49EohOyakVsVfn2D02S6lQc1WLg_KpqMI82NKZtR8";
 const GOOGLE_SHEET_NAME = "contact form";
-const GOOGLE_CREDENTIALS_PATH = path.join(__dirname, "google-service-account.json");
 
 // Mongoose schema for contact submissions
 const contactSubmissionSchema = new Schema({
